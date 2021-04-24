@@ -78,7 +78,7 @@ In this section you will find Yara rules deprecated.
 
 # Contact
 
-Webpage: http://yararules.com
+Webpage: https://yara-rules.github.io/blog/
 
 Twitter account: https://twitter.com/yararules
 
