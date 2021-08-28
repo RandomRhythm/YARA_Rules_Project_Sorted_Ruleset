@@ -1,6 +1,10 @@
+
 /*
     This Yara ruleset is under the GNU-GPLv2 license (http://www.gnu.org/licenses/gpl-2.0.html) and open to any user or organization, as    long as you use it under this license.
 */
+
+
+//Rules reorganized/sorted by Sort_Rules on 2021-08-28
 
 import "pe"
 
@@ -9,6 +13,8 @@ private rule WindowsPE
     condition:
         uint16(0) == 0x5A4D and uint32(uint32(0x3C)) == 0x00004550
 }
+
+
 
 rule DebuggerCheck__PEB : AntiDebug DebuggerCheck {
 	meta:
@@ -21,6 +27,8 @@ rule DebuggerCheck__PEB : AntiDebug DebuggerCheck {
 		any of them
 }
 
+
+
 rule DebuggerCheck__GlobalFlags : AntiDebug DebuggerCheck {
 	meta:
 		weight = 1
@@ -31,6 +39,8 @@ rule DebuggerCheck__GlobalFlags : AntiDebug DebuggerCheck {
 	condition:
 		any of them
 }
+
+
 
 rule DebuggerCheck__QueryInfo : AntiDebug DebuggerCheck {
 	meta:
@@ -43,6 +53,8 @@ rule DebuggerCheck__QueryInfo : AntiDebug DebuggerCheck {
 		any of them
 }
 
+
+
 rule DebuggerCheck__RemoteAPI : AntiDebug DebuggerCheck {
 	meta:
 		weight = 1
@@ -53,6 +65,8 @@ rule DebuggerCheck__RemoteAPI : AntiDebug DebuggerCheck {
 	condition:
 		any of them
 }
+
+
 
 rule DebuggerHiding__Thread : AntiDebug DebuggerHiding {
 	meta:
@@ -65,6 +79,8 @@ rule DebuggerHiding__Thread : AntiDebug DebuggerHiding {
 		any of them
 }
 
+
+
 rule DebuggerHiding__Active : AntiDebug DebuggerHiding {
 	meta:
 		weight = 1
@@ -75,6 +91,8 @@ rule DebuggerHiding__Active : AntiDebug DebuggerHiding {
 	condition:
 		any of them
 }
+
+
 
 // 20150909 - Issue #39 - Commented because of High FP rate
 /*
@@ -143,6 +161,8 @@ rule DebuggerException__ConsoleCtrl : AntiDebug DebuggerException {
 		any of them
 }
 
+
+
 rule DebuggerException__SetConsoleCtrl : AntiDebug DebuggerException {
 	meta:
 		weight = 1
@@ -153,6 +173,8 @@ rule DebuggerException__SetConsoleCtrl : AntiDebug DebuggerException {
 	condition:
 		any of them
 }
+
+
 
 rule ThreadControl__Context : AntiDebug ThreadControl {
 	meta:
@@ -165,6 +187,8 @@ rule ThreadControl__Context : AntiDebug ThreadControl {
 		any of them
 }
 
+
+
 rule DebuggerCheck__DrWatson : AntiDebug DebuggerCheck {
 	meta:
 		weight = 1
@@ -175,6 +199,8 @@ rule DebuggerCheck__DrWatson : AntiDebug DebuggerCheck {
 	condition:
 		any of them
 }
+
+
 
 rule SEH__v3 : AntiDebug SEH {
 	meta:
@@ -187,6 +213,8 @@ rule SEH__v3 : AntiDebug SEH {
 	condition:
 		any of them
 }
+
+
 
 rule SEH__v4 : AntiDebug SEH {
     // VS 8.0+
@@ -202,6 +230,8 @@ rule SEH__v4 : AntiDebug SEH {
 		any of them
 }
 
+
+
 rule SEH__vba : AntiDebug SEH {
 	meta:
 		weight = 1
@@ -212,6 +242,8 @@ rule SEH__vba : AntiDebug SEH {
 	condition:
 		any of them
 }
+
+
 
 rule SEH__vectored : AntiDebug SEH {
 	meta:
@@ -224,6 +256,8 @@ rule SEH__vectored : AntiDebug SEH {
 	condition:
 		any of them
 }
+
+
 
 // 20150909 - Issue #39 - Commented because of High FP rate
 /*
@@ -293,6 +327,8 @@ rule SEH_Save : Tactic_DefensiveEvasion Technique_AntiDebugging SubTechnique_SEH
         WindowsPE and $a
 }
 
+
+
 rule SEH_Init : Tactic_DefensiveEvasion Technique_AntiDebugging SubTechnique_SEH
 {
     meta:
@@ -305,6 +341,8 @@ rule SEH_Init : Tactic_DefensiveEvasion Technique_AntiDebugging SubTechnique_SEH
     condition:
         WindowsPE and ($a or $b)
 }
+
+
 
 
 rule Check_Dlls
@@ -325,6 +363,8 @@ rule Check_Dlls
 		2 of them
 }
 
+
+
 rule Check_Qemu_Description
 {
 	meta:
@@ -338,6 +378,8 @@ rule Check_Qemu_Description
 	condition:
 		all of them
 }
+
+
 
 rule Check_Qemu_DeviceMap
 {
@@ -353,6 +395,8 @@ rule Check_Qemu_DeviceMap
 		all of them
 }
 
+
+
 rule Check_VBox_Description
 {
 	meta:
@@ -366,6 +410,8 @@ rule Check_VBox_Description
 	condition:
 		all of them
 }
+
+
 rule Check_VBox_DeviceMap
 {
 	meta:
@@ -379,6 +425,8 @@ rule Check_VBox_DeviceMap
 	condition:
 		all of them
 }
+
+
 rule Check_VBox_Guest_Additions
 {
 	meta:
@@ -390,6 +438,8 @@ rule Check_VBox_Guest_Additions
 	condition:
 		any of them
 }
+
+
 rule Check_VBox_VideoDrivers
 {
 	meta:
@@ -403,6 +453,8 @@ rule Check_VBox_VideoDrivers
 	condition:
 		all of them
 }
+
+
 rule Check_VMWare_DeviceMap
 {
 	meta:
@@ -416,6 +468,8 @@ rule Check_VMWare_DeviceMap
 	condition:
 		all of them
 }
+
+
 rule Check_VmTools
 {
 	meta:
@@ -427,6 +481,8 @@ rule Check_VmTools
 	condition:
 		any of them
 }
+
+
 rule Check_Wine
 {
 	meta:
@@ -438,6 +494,8 @@ rule Check_Wine
 	condition:
 		any of them
 }
+
+
 
 rule vmdetect
 {
@@ -518,33 +576,7 @@ rule vmdetect
         any of them
 }
 
-rule Check_Debugger
-{
-	meta:
-		Author = "Nick Hoffman"
-		Description = "Looks for both isDebuggerPresent and CheckRemoteDebuggerPresent"
-		Sample = "de1af0e97e94859d372be7fcf3a5daa5"
-	condition:
-		pe.imports("kernel32.dll","CheckRemoteDebuggerPresent") and
-		pe.imports("kernel32.dll","IsDebuggerPresent")
-}
 
-rule Check_DriveSize
-{
-	meta:
-		Author = "Nick Hoffman"
-		Description = "Rule tries to catch uses of DeviceIOControl being used to get the drive size"
-		Sample = "de1af0e97e94859d372be7fcf3a5daa5"
-
-	strings:
-		$physicaldrive = "\\\\.\\PhysicalDrive0" wide ascii nocase
-		$dwIoControlCode = {68 5c 40 07 00 [0-5] FF 15} //push 7405ch ; push esi (handle) then call deviceoiocontrol IOCTL_DISK_GET_LENGTH_INFO
-	condition:
-		pe.imports("kernel32.dll","CreateFileA") and
-		pe.imports("kernel32.dll","DeviceIoControl") and
-		$dwIoControlCode and
-		$physicaldrive
-}
 rule Check_FilePaths
 {
 	meta:
@@ -558,6 +590,8 @@ rule Check_FilePaths
 	condition:
 		all of ($path*) and pe.imports("kernel32.dll","GetModuleFileNameA")
 }
+
+
 
 rule Check_UserNames
 {
@@ -576,6 +610,8 @@ rule Check_UserNames
 }
 
 
+
+
 rule Check_OutputDebugStringA_iat
 {
 
@@ -587,6 +623,8 @@ rule Check_OutputDebugStringA_iat
 	condition:
 		pe.imports("kernel32.dll","OutputDebugStringA")
 }
+
+
 
 // 20150909 - Issue #39 - Commented because of High FP rate
 /*
@@ -634,6 +672,8 @@ rule Check_FindWindowA_iat {
 		pe.imports("user32.dll","FindWindowA") and ($ollydbg or $windbg)
 }
 
+
+
 rule DebuggerCheck__MemoryWorkingSet : AntiDebug DebuggerCheck {
 	meta:
 		author = "Fernando Mercês"
@@ -645,6 +685,8 @@ rule DebuggerCheck__MemoryWorkingSet : AntiDebug DebuggerCheck {
 		pe.imports("kernel32.dll", "K32GetProcessMemoryInfo") and
 		pe.imports("kernel32.dll", "GetCurrentProcess")
 }
+
+
 
 rule WMI_VM_Detect : WMI_VM_Detect
 {
@@ -675,6 +717,8 @@ rule WMI_VM_Detect : WMI_VM_Detect
 
 }
 
+
+
 rule anti_dbg {
     meta:
         author = "x0r"
@@ -690,6 +734,8 @@ rule anti_dbg {
     condition:
         $d1 and 1 of ($c*)
 }
+
+
 
 rule anti_dbgtools {
     meta:
@@ -716,6 +762,8 @@ rule anti_dbgtools {
         any of them
 }
 
+
+
 rule antisb_joesanbox {
      meta:
         author = "x0r"
@@ -728,6 +776,8 @@ rule antisb_joesanbox {
     condition:
         all of them
 }
+
+
 
 rule antisb_anubis {
     meta:
@@ -743,6 +793,8 @@ rule antisb_anubis {
         $p1 and $c1 and 1 of ($s*)
 }
 
+
+
 rule antisb_threatExpert {
     meta:
         author = "x0r"
@@ -754,6 +806,8 @@ rule antisb_threatExpert {
         all of them
 }
 
+
+
 rule antisb_sandboxie {
     meta:
         author = "x0r"
@@ -764,6 +818,8 @@ rule antisb_sandboxie {
     condition:
         all of them
 }
+
+
 
 rule antisb_cwsandbox {
     meta:
@@ -777,6 +833,8 @@ rule antisb_cwsandbox {
         all of them
 }
 
+
+
 rule antivm_virtualbox {
     meta:
         author = "x0r"
@@ -787,6 +845,8 @@ rule antivm_virtualbox {
     condition:
         any of them
 }
+
+
 
 rule antivm_vmware {
     meta:
@@ -806,6 +866,8 @@ rule antivm_vmware {
         any of them
 }
 
+
+
 rule antivm_bios {
     meta:
         author = "x0r"
@@ -821,6 +883,8 @@ rule antivm_bios {
     condition:
         1 of ($p*) and 1 of ($c*) and 1 of ($r*)
 }
+
+
 
 rule disable_antivirus {
     meta:
@@ -853,6 +917,8 @@ rule disable_antivirus {
         ($c1 and $p1 and 1 of ($f*)) or ($c1 and $p2) or 1 of ($r*) or $p3
 }
 
+
+
 rule disable_uax {
     meta:
         author = "x0r"
@@ -864,6 +930,8 @@ rule disable_uax {
     condition:
         all of them
 }
+
+
 
 rule disable_firewall {
     meta:
@@ -881,6 +949,8 @@ rule disable_firewall {
         (1 of ($p*) and $c1 and 1 of ($r*)) or $s1
 }
 
+
+
 rule disable_registry {
     meta:
         author = "x0r"
@@ -894,6 +964,8 @@ rule disable_registry {
     condition:
         1 of ($p*) and $c1 and 1 of ($r*)
 }
+
+
 
 rule disable_dep {
     meta:
@@ -910,6 +982,8 @@ rule disable_dep {
         any of them
 }
 
+
+
 rule disable_taskmanager {
     meta:
         author = "x0r"
@@ -922,6 +996,8 @@ rule disable_taskmanager {
         1 of ($p*) and 1 of ($r*)
 }
 
+
+
 rule check_patchlevel {
     meta:
         author = "x0r"
@@ -932,6 +1008,8 @@ rule check_patchlevel {
     condition:
         any of them
 }
+
+
 
 rule win_hook {
     meta:
@@ -946,6 +1024,8 @@ rule win_hook {
     condition:
         $f1 and 1 of ($c*)
 }
+
+
 
 rule vmdetect_misc : vmdetect
 {
@@ -1030,3 +1110,4 @@ rule vmdetect_misc : vmdetect
 	condition:
 		2 of them
 }
+
