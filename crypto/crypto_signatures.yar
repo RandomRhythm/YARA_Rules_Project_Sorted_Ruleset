@@ -1,4 +1,3 @@
-
 /*
     This Yara ruleset is under the GNU-GPLv2 license (http://www.gnu.org/licenses/gpl-2.0.html) and open to any user or organization, as long as you use it under this license.
 */
@@ -14,8 +13,6 @@ rule Big_Numbers0
 		$c0
 }
 
-
-
 rule Big_Numbers1
 {
 	meta:
@@ -27,8 +24,6 @@ rule Big_Numbers1
 	condition:
 		$c0
 }
-
-
 
 rule Big_Numbers2
 {
@@ -42,8 +37,6 @@ rule Big_Numbers2
 		$c0
 }
 
-
-
 rule Big_Numbers3
 {
 	meta:
@@ -55,8 +48,6 @@ rule Big_Numbers3
 	condition:
 		$c0
 }
-
-
 
 rule Big_Numbers4
 {
@@ -70,8 +61,6 @@ rule Big_Numbers4
 		$c0
 }
 
-
-
 rule Big_Numbers5
 {
 	meta:
@@ -84,8 +73,6 @@ rule Big_Numbers5
 		$c0
 }
 
-
-
 rule Prime_Constants_char {
 	meta:
 		author = "_pusher_"
@@ -97,8 +84,6 @@ rule Prime_Constants_char {
 		$c0
 }
 
-
-
 rule Prime_Constants_long {
 	meta:
 		author = "_pusher_"
@@ -109,8 +94,6 @@ rule Prime_Constants_long {
 	condition:
 		$c0
 }
-
-
 
 
 rule Advapi_Hash_API {
@@ -127,8 +110,6 @@ rule Advapi_Hash_API {
 		$advapi32 and ($CryptCreateHash and $CryptHashData and $CryptAcquireContext)
 }
 
-
-
 rule Crypt32_CryptBinaryToString_API {
 	meta:
 		author = "_pusher_"
@@ -141,8 +122,6 @@ rule Crypt32_CryptBinaryToString_API {
 		$crypt32 and ($CryptBinaryToStringA)
 }
 
-
-
 rule CRC32c_poly_Constant {
 	meta:
 		author = "_pusher_"
@@ -153,8 +132,6 @@ rule CRC32c_poly_Constant {
 	condition:
 		$c0
 }
-
-
 
 rule CRC32_poly_Constant {
 	meta:
@@ -168,8 +145,6 @@ rule CRC32_poly_Constant {
 		$c0
 }
 
-
-
 rule CRC32_table {
 	meta:
 		author = "_pusher_"
@@ -181,8 +156,6 @@ rule CRC32_table {
 	condition:
 		$c0
 }
-
-
 
 rule CRC32_table_lookup {
 	meta:
@@ -196,8 +169,6 @@ rule CRC32_table_lookup {
 		$c0
 }
 
-
-
 rule CRC32b_poly_Constant {
 	meta:
 		author = "_pusher_"
@@ -209,8 +180,6 @@ rule CRC32b_poly_Constant {
 	condition:
 		$c0
 }
-
-
 
 
 rule CRC16_table {
@@ -226,8 +195,6 @@ rule CRC16_table {
 }
 
 
-
-
 rule FlyUtilsCnDES_ECB_Encrypt {
 	meta:
 		author = "_pusher_"
@@ -239,8 +206,6 @@ rule FlyUtilsCnDES_ECB_Encrypt {
 		$c0
 }
 
-
-
 rule FlyUtilsCnDES_ECB_Decrypt {
 	meta:
 		author = "_pusher_"
@@ -251,8 +216,6 @@ rule FlyUtilsCnDES_ECB_Decrypt {
 	condition:
 		$c0
 }
-
-
 
 rule Elf_Hash {
 	meta:
@@ -271,8 +234,6 @@ rule Elf_Hash {
 	condition:
 		any of them
 }
-
-
 
 rule BLOWFISH_Constants {
 	meta:
@@ -297,8 +258,6 @@ rule BLOWFISH_Constants {
 		6 of them
 }
 
-
-
 rule MD5_Constants {
 	meta:
 		author = "phoul (@phoul)"
@@ -322,8 +281,6 @@ rule MD5_Constants {
 		5 of them
 }
 
-
-
 rule MD5_API {
 	meta:
 		author = "_pusher_"
@@ -338,8 +295,6 @@ rule MD5_API {
 	condition:
 		($advapi32 or $cryptdll) and ($MD5Init and $MD5Update and $MD5Final)
 }
-
-
 
 rule RC6_Constants {
 	meta:
@@ -357,8 +312,6 @@ rule RC6_Constants {
 	condition:
 		2 of them
 }
-
-
 
 rule RIPEMD160_Constants {
 	meta:
@@ -380,8 +333,6 @@ rule RIPEMD160_Constants {
 	condition:
 		5 of them
 }
-
-
 
 rule SHA1_Constants {
 	meta:
@@ -406,8 +357,6 @@ rule SHA1_Constants {
 		5 of them
 }
 
-
-
 rule SHA512_Constants {
 	meta:
 		author = "phoul (@phoul)"
@@ -429,8 +378,6 @@ rule SHA512_Constants {
 		5 of them
 }
 
-
-
 rule SHA2_BLAKE2_IVs {
 	meta:
 		author = "spelissier"
@@ -451,8 +398,6 @@ rule SHA2_BLAKE2_IVs {
 		all of them
 }
 
-
-
 rule TEAN {
 	meta:
 		author = "_pusher_"
@@ -463,8 +408,6 @@ rule TEAN {
 	condition:
 		$c0
 }
-
-
 
 rule WHIRLPOOL_Constants {
 	meta:
@@ -480,8 +423,6 @@ rule WHIRLPOOL_Constants {
 	condition:
 		2 of them
 }
-
-
 
 rule DarkEYEv3_Cryptor {
 	meta:
@@ -505,8 +446,6 @@ rule DarkEYEv3_Cryptor {
 		uint16(0) == 0x5a4d and $s0
 }
 
-
-
 rule Miracl_powmod
 {	meta:
 		author = "Maxx"
@@ -517,8 +456,6 @@ rule Miracl_powmod
 		$c0
 }
 
-
-
 rule Miracl_crt
 {	meta:
 		author = "Maxx"
@@ -528,8 +465,6 @@ rule Miracl_crt
 	condition:
 		$c0
 }
-
-
 
 rule CryptoPP_a_exp_b_mod_c
 {	meta:
@@ -543,8 +478,6 @@ rule CryptoPP_a_exp_b_mod_c
 		any of them
 }
 
-
-
 rule CryptoPP_modulo
 {	meta:
 		author = "Maxx"
@@ -557,8 +490,6 @@ rule CryptoPP_modulo
 	condition:
 		any of them
 }
-
-
 
 rule FGint_MontgomeryModExp
 {	meta:
@@ -575,8 +506,6 @@ rule FGint_MontgomeryModExp
 		any of them
 }
 
-
-
 rule FGint_FGIntModExp
 {	meta:
 		author = "_pusher_"
@@ -587,8 +516,6 @@ rule FGint_FGIntModExp
 	condition:
 		$c0
 }
-
-
 
 rule FGint_MulByInt
 {	meta:
@@ -601,8 +528,6 @@ rule FGint_MulByInt
 		$c0
 }
 
-
-
 rule FGint_DivMod
 {	meta:
 		author = "_pusher_"
@@ -614,8 +539,6 @@ rule FGint_DivMod
 		$c0
 }
 
-
-
 rule FGint_FGIntDestroy
 {	meta:
 		author = "_pusher_"
@@ -626,8 +549,6 @@ rule FGint_FGIntDestroy
 	condition:
 		$c0
 }
-
-
 
 rule FGint_Base10StringToGInt
 {	meta:
@@ -644,8 +565,6 @@ rule FGint_Base10StringToGInt
 		any of them
 }
 
-
-
 rule FGint_ConvertBase256to64
 {	meta:
 		author = "_pusher_"
@@ -656,8 +575,6 @@ rule FGint_ConvertBase256to64
 	condition:
 		$c0
 }
-
-
 
 rule FGint_ConvertHexStringToBase256String
 {	meta:
@@ -671,8 +588,6 @@ rule FGint_ConvertHexStringToBase256String
 		$c0
 }
 
-
-
 rule FGint_Base256StringToGInt
 {	meta:
 		author = "_pusher_"
@@ -683,8 +598,6 @@ rule FGint_Base256StringToGInt
 	condition:
 		$c0
 }
-
-
 
 rule FGint_FGIntToBase256String
 {	meta:
@@ -699,8 +612,6 @@ rule FGint_FGIntToBase256String
 		any of them
 }
 
-
-
 rule FGint_ConvertBase256StringToHexString
 {	meta:
 		author = "_pusher_"
@@ -711,8 +622,6 @@ rule FGint_ConvertBase256StringToHexString
 	condition:
 		$c0
 }
-
-
 
 
 rule FGint_PGPConvertBase256to64
@@ -727,8 +636,6 @@ rule FGint_PGPConvertBase256to64
 }
 
 
-
-
 rule FGint_RSAEncrypt
 {	meta:
 		author = "_pusher_"
@@ -740,8 +647,6 @@ rule FGint_RSAEncrypt
 		$c0
 }
 
-
-
 rule FGint_RsaDecrypt
 {	meta:
 		author = "Maxx"
@@ -752,8 +657,6 @@ rule FGint_RsaDecrypt
 		$c0
 }
 
-
-
 rule FGint_RSAVerify
 {	meta:
 		author = "_pusher_"
@@ -763,8 +666,6 @@ rule FGint_RSAVerify
 	condition:
 		$c0
 }
-
-
 
 rule FGint_FindPrimeGoodCurveAndPoint
 {	meta:
@@ -777,8 +678,6 @@ rule FGint_FindPrimeGoodCurveAndPoint
 	condition:
 		$c0
 }
-
-
 
 rule FGint_ECElGamalEncrypt
 {	meta:
@@ -793,8 +692,6 @@ rule FGint_ECElGamalEncrypt
 		$c0 or $c1
 }
 
-
-
 rule FGint_ECAddPoints
 {	meta:
 		author = "_pusher_"
@@ -806,8 +703,6 @@ rule FGint_ECAddPoints
 	condition:
 		$c0
 }
-
-
 
 rule FGint_ECPointKMultiple
 {	meta:
@@ -821,8 +716,6 @@ rule FGint_ECPointKMultiple
 		$c0
 }
 
-
-
 rule FGint_ECPointDestroy
 {	meta:
 		author = "_pusher_"
@@ -834,8 +727,6 @@ rule FGint_ECPointDestroy
 	condition:
 		$c0
 }
-
-
 
 rule FGint_DSAPrimeSearch
 {	meta:
@@ -849,8 +740,6 @@ rule FGint_DSAPrimeSearch
 		$c0
 }
 
-
-
 rule FGint_DSASign
 {	meta:
 		author = "_pusher_"
@@ -862,8 +751,6 @@ rule FGint_DSASign
 	condition:
 		$c0
 }
-
-
 
 rule FGint_DSAVerify
 {	meta:
@@ -878,8 +765,6 @@ rule FGint_DSAVerify
 }
 
 
-
-
 rule DES_Long
 {	meta:
 		author = "_pusher_"
@@ -890,8 +775,6 @@ rule DES_Long
 	condition:
 		$c0
 }
-
-
 
 rule DES_sbox
 {	meta:
@@ -904,8 +787,6 @@ rule DES_sbox
 		$c0
 }
 
-
-
 rule DES_pbox_long
 {	meta:
 		author = "_pusher_"
@@ -917,8 +798,6 @@ rule DES_pbox_long
 		$c0
 }
 
-
-
 rule OpenSSL_BN_mod_exp2_mont
 {	meta:
 		author = "Maxx"
@@ -928,8 +807,6 @@ rule OpenSSL_BN_mod_exp2_mont
 	condition:
 		$c0
 }
-
-
 
 rule OpenSSL_BN_mod_exp_mont
 {	meta:
@@ -941,8 +818,6 @@ rule OpenSSL_BN_mod_exp_mont
 		$c0
 }
 
-
-
 rule OpenSSL_BN_mod_exp_recp
 {	meta:
 		author = "Maxx"
@@ -952,8 +827,6 @@ rule OpenSSL_BN_mod_exp_recp
 	condition:
 		$c0
 }
-
-
 
 rule OpenSSL_BN_mod_exp_simple
 {	meta:
@@ -965,8 +838,6 @@ rule OpenSSL_BN_mod_exp_simple
 		$c0
 }
 
-
-
 rule OpenSSL_BN_mod_exp_inverse
 {	meta:
 		author = "Maxx"
@@ -976,8 +847,6 @@ rule OpenSSL_BN_mod_exp_inverse
 	condition:
 		$c0
 }
-
-
 
 rule OpenSSL_DSA
 {
@@ -999,8 +868,6 @@ rule OpenSSL_DSA
 		7 of ($a*)
 }
 
-
-
 rule FGint_RsaSign
 {	meta:
 		author = "Maxx"
@@ -1010,8 +877,6 @@ rule FGint_RsaSign
 	condition:
 		$c0
 }
-
-
 
 
 rule LockBox_RsaEncryptFile
@@ -1024,8 +889,6 @@ rule LockBox_RsaEncryptFile
 		$c0
 }
 
-
-
 rule LockBox_DecryptRsaEx
 {	meta:
 		author = "Maxx"
@@ -1035,8 +898,6 @@ rule LockBox_DecryptRsaEx
 	condition:
 		$c0
 }
-
-
 
 rule LockBox_EncryptRsaEx
 {	meta:
@@ -1048,8 +909,6 @@ rule LockBox_EncryptRsaEx
 		$c0
 }
 
-
-
 rule LockBox_TlbRsaKey
 {	meta:
 		author = "Maxx"
@@ -1059,8 +918,6 @@ rule LockBox_TlbRsaKey
 	condition:
 		$c0
 }
-
-
 
 rule BigDig_bpInit
 {	meta:
@@ -1072,8 +929,6 @@ rule BigDig_bpInit
 		$c0
 }
 
-
-
 rule BigDig_mpModExp
 {	meta:
 		author = "Maxx"
@@ -1083,8 +938,6 @@ rule BigDig_mpModExp
 	condition:
 		$c0
 }
-
-
 
 rule BigDig_mpModInv
 {	meta:
@@ -1096,8 +949,6 @@ rule BigDig_mpModInv
 		$c0
 }
 
-
-
 rule BigDig_mpModMult
 {	meta:
 		author = "Maxx"
@@ -1107,8 +958,6 @@ rule BigDig_mpModMult
 	condition:
 		$c0
 }
-
-
 
 rule BigDig_mpModulo
 {	meta:
@@ -1120,8 +969,6 @@ rule BigDig_mpModulo
 		$c0
 }
 
-
-
 rule BigDig_spModExpB
 {	meta:
 		author = "Maxx"
@@ -1131,8 +978,6 @@ rule BigDig_spModExpB
 	condition:
 		$c0
 }
-
-
 
 rule BigDig_spModInv
 {	meta:
@@ -1144,8 +989,6 @@ rule BigDig_spModInv
 		$c0
 }
 
-
-
 rule BigDig_spModMult
 {	meta:
 		author = "Maxx"
@@ -1155,8 +998,6 @@ rule BigDig_spModMult
 	condition:
 		$c0
 }
-
-
 
 rule CryptoPP_ApplyFunction
 {	meta:
@@ -1169,8 +1010,6 @@ rule CryptoPP_ApplyFunction
 		any of them
 }
 
-
-
 rule CryptoPP_RsaFunction
 {	meta:
 		author = "Maxx"
@@ -1182,8 +1021,6 @@ rule CryptoPP_RsaFunction
 	condition:
 		any of them
 }
-
-
 
 rule CryptoPP_Integer_constructor
 {	meta:
@@ -1198,8 +1035,6 @@ rule CryptoPP_Integer_constructor
 		any of them
 }
 
-
-
 rule RijnDael_AES
 {	meta:
 		author = "_pusher_"
@@ -1210,8 +1045,6 @@ rule RijnDael_AES
 	condition:
 		$c0
 }
-
-
 
 rule RijnDael_AES_CHAR
 {	meta:
@@ -1224,7 +1057,17 @@ rule RijnDael_AES_CHAR
 		$c0
 }
 
-
+rule ARIA_SB2
+{	meta:
+		author = "spelissier"
+		description = "Aria SBox 2"
+		date = "2020-12"
+		reference="http://210.104.33.10/ARIA/doc/ARIA-specification-e.pdf#page=7"
+	strings:
+		$c0 = { E2 4E 54 FC 94 C2 4A CC 62 0D 6A 46 3C 4D 8B D1 5E FA 64 CB B4 97 BE 2B BC 77 2E 03 D3 19 59 C1 }
+	condition:
+		$c0
+}
 
 rule RijnDael_AES_CHAR_inv
 {	meta:
@@ -1238,8 +1081,6 @@ rule RijnDael_AES_CHAR_inv
 		$c0
 }
 
-
-
 rule RsaRef2_NN_modExp
 {	meta:
 		author = "Maxx"
@@ -1249,8 +1090,6 @@ rule RsaRef2_NN_modExp
 	condition:
 		any of them
 }
-
-
 
 rule RsaRef2_NN_modInv
 {	meta:
@@ -1262,8 +1101,6 @@ rule RsaRef2_NN_modInv
 		$c0
 }
 
-
-
 rule RsaRef2_NN_modMult
 {	meta:
 		author = "Maxx"
@@ -1273,8 +1110,6 @@ rule RsaRef2_NN_modMult
 	condition:
 		$c0
 }
-
-
 
 rule RsaRef2_RsaPrivateDecrypt
 {	meta:
@@ -1286,8 +1121,6 @@ rule RsaRef2_RsaPrivateDecrypt
 		$c0
 }
 
-
-
 rule RsaRef2_RsaPrivateEncrypt
 {	meta:
 		author = "Maxx"
@@ -1297,8 +1130,6 @@ rule RsaRef2_RsaPrivateEncrypt
 	condition:
 		$c0
 }
-
-
 
 rule RsaRef2_RsaPublicDecrypt
 {	meta:
@@ -1310,8 +1141,6 @@ rule RsaRef2_RsaPublicDecrypt
 		$c0
 }
 
-
-
 rule RsaRef2_RsaPublicEncrypt
 {	meta:
 		author = "Maxx"
@@ -1321,8 +1150,6 @@ rule RsaRef2_RsaPublicEncrypt
 	condition:
 		$c0
 }
-
-
 
 rule RsaEuro_NN_modInv
 {	meta:
@@ -1334,8 +1161,6 @@ rule RsaEuro_NN_modInv
 		$c0
 }
 
-
-
 rule RsaEuro_NN_modMult
 {	meta:
 		author = "Maxx"
@@ -1346,8 +1171,6 @@ rule RsaEuro_NN_modMult
 		$c0
 }
 
-
-
 rule Miracl_Big_constructor
 {	meta:
 		author = "Maxx"
@@ -1357,8 +1180,6 @@ rule Miracl_Big_constructor
 	condition:
 		$c0
 }
-
-
 
 rule Miracl_mirvar
 {	meta:
@@ -1372,8 +1193,6 @@ rule Miracl_mirvar
 		any of them
 }
 
-
-
 rule Miracl_mirsys_init
 {	meta:
 		author = "Maxx"
@@ -1383,8 +1202,6 @@ rule Miracl_mirsys_init
 	condition:
 		$c0
 }
-
-
 
 /* //gives many false positives sorry Storm Shadow
 rule x509_public_key_infrastructure_cert
@@ -1420,8 +1237,6 @@ rule BASE64_table {
 		$c0
 }
 
-
-
 rule Delphi_Random {
 	meta:
 		author = "_pusher_"
@@ -1436,8 +1251,6 @@ rule Delphi_Random {
 		any of them
 }
 
-
-
 rule Delphi_RandomRange {
 	meta:
 		author = "_pusher_"
@@ -1449,8 +1262,6 @@ rule Delphi_RandomRange {
 	condition:
 		$c0
 }
-
-
 
 rule Delphi_FormShow {
 	meta:
@@ -1465,8 +1276,6 @@ rule Delphi_FormShow {
 	condition:
 		any of them
 }
-
-
 
 rule Delphi_CompareCall {
 	meta:
@@ -1483,8 +1292,6 @@ rule Delphi_CompareCall {
 		any of them
 }
 
-
-
 rule Delphi_Copy {
 	meta:
 		author = "_pusher_"
@@ -1498,8 +1305,6 @@ rule Delphi_Copy {
 	condition:
 		any of them
 }
-
-
 
 rule Delphi_IntToStr {
 	meta:
@@ -1516,8 +1321,6 @@ rule Delphi_IntToStr {
 }
 
 
-
-
 rule Delphi_StrToInt {
 	meta:
 		author = "_pusher_"
@@ -1531,8 +1334,6 @@ rule Delphi_StrToInt {
 	condition:
 		any of them
 }
-
-
 
 rule Delphi_DecodeDate {
 	meta:
@@ -1549,8 +1350,6 @@ rule Delphi_DecodeDate {
 }
 
 
-
-
 rule Unknown_Random {
 	meta:
 		author = "_pusher_"
@@ -1562,8 +1361,6 @@ rule Unknown_Random {
 		$c0
 }
 
-
-
 rule VC6_Random {
 	meta:
 		author = "_pusher_"
@@ -1574,8 +1371,6 @@ rule VC6_Random {
 	condition:
 		$c0
 }
-
-
 
 rule VC8_Random {
 	meta:
@@ -1589,8 +1384,6 @@ rule VC8_Random {
 		$c0
 }
 
-
-
 rule DCP_RIJNDAEL_Init {
 	meta:
 		author = "_pusher_"
@@ -1602,8 +1395,6 @@ rule DCP_RIJNDAEL_Init {
 		$c0
 }
 
-
-
 rule DCP_RIJNDAEL_EncryptECB {
 	meta:
 		author = "_pusher_"
@@ -1614,8 +1405,6 @@ rule DCP_RIJNDAEL_EncryptECB {
 	condition:
 		$c0
 }
-
-
 
 rule DCP_BLOWFISH_Init {
 	meta:
@@ -1629,8 +1418,6 @@ rule DCP_BLOWFISH_Init {
 }
 
 
-
-
 rule DCP_BLOWFISH_EncryptCBC {
 	meta:
 		author = "_pusher_"
@@ -1641,8 +1428,6 @@ rule DCP_BLOWFISH_EncryptCBC {
 	condition:
 		$c0
 }
-
-
 
 rule DCP_DES_Init {
 	meta:
@@ -1657,8 +1442,6 @@ rule DCP_DES_Init {
 }
 
 
-
-
 rule DCP_DES_EncryptECB {
 	meta:
 		author = "_pusher_"
@@ -1669,8 +1452,6 @@ rule DCP_DES_EncryptECB {
 	condition:
 		any of them
 }
-
-
 
 rule Chacha_128_constant {
     meta:
@@ -1683,8 +1464,6 @@ rule Chacha_128_constant {
 	condition:
 		$c0
 }
-
-
 
 rule Chacha_256_constant {
     meta:
@@ -1700,14 +1479,12 @@ rule Chacha_256_constant {
 		$c0 or ( $split1 and $split2 )
 }
 
-
-
 rule ecc_order {
     meta:
 		author = "spelissier"
 		description = "Look for known Elliptic curve orders"
-		date = "2020-01"
-		version = "0.1"
+		date = "2021-07"
+		version = "0.2"
 	strings:
 		$secp192k1 = { FF FF FF FF FF FF FF FF FF FF FF FE 26 F2 FC 17 0F 69 46 6A 74 DE FD 8D}
 		$secp192r1 = { FF FF FF FF FF FF FF FF FF FF FF FF 99 DE F8 36 14 6B C9 B1 B4 D2 28 31}
@@ -1716,11 +1493,10 @@ rule ecc_order {
 		$secp256k1 = { FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FE BA AE DC E6 AF 48 A0 3B BF D2 5E 8C D0 36 41 41 }
 		$prime256v1 = { FF FF FF FF 00 00 00 00 FF FF FF FF FF FF FF FF BC E6 FA AD A7 17 9E 84 F3 B9 CA C2 FC 63 25 51 }
 		$secp384r1 = { FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF C7 63 4D 81 F4 37 2D DF 58 1A 0D B2 48 B0 A7 7A EC EC 19 6A CC C5 29 73 }
+		$bls12_381_r = { 01 00 00 00 FF FF FF FF FE 5B FE FF 02 A4 BD 53 05 D8 A1 09 08 D8 39 33 48 7D 9D 29 53 A7 ED 73}
 	condition:
 		any of them
 }
-
-
 
 rule SHA3_constants {
 	meta:
@@ -1755,8 +1531,6 @@ rule SHA3_constants {
 		10 of them
 }
 
-
-
 rule SHA3_interleaved {
 	meta:
 		author = "spelissier"
@@ -1790,3 +1564,17 @@ rule SHA3_interleaved {
 		10 of them
 }
 
+rule SipHash_big_endian_constants {
+    meta:
+		author = "spelissier"
+		description = "Look for SipHash constants in big endian"
+		date = "2020-07"
+		reference = "https://131002.net/siphash/siphash.pdf#page=6"
+	strings:
+		$c0 = "uespemos"
+		$c1 = "modnarod"
+		$c2 = "arenegyl"
+		$c3 = "setybdet"
+	condition:
+		2 of them
+}
