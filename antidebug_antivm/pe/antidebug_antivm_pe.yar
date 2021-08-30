@@ -3,9 +3,9 @@
 */
 
 
-//Rules reorganized/sorted by Sort_Rules on 2021-08-28
+//Rules reorganized/sorted by Sort_Rules on 2021-08-29
 
-
+import "pe"
 
 rule Check_Debugger
 {
