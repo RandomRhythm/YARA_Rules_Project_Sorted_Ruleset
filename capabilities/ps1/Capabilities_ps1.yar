@@ -332,6 +332,7 @@ rule suspicious_string_manipulation_ps1
     $s12="[Convert]::ToByte"
     $s13="texttoexe"
     $s14="[System.Text.Encoding]::ASCII.GetString([System.Convert]"
+    $s15="[Array]::reverse()"
 	condition:
 		any of them
 }
