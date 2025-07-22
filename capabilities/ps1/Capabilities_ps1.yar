@@ -540,6 +540,7 @@ rule external_file_access_ps1
     $s12="out-word" nocase
     $s13="get-modifiablepath" nocase
     $s14="get-unattendedinstallfiles" nocase
+    $s15="[System.IO.File]::WriteAllBytes"
 	condition:
 		any of them
 }
